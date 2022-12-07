@@ -46,8 +46,14 @@ class Pizza:
                     exit(10)
             self._price = 0.05 * Pizza.area(other) + temp2 * 2
 
-    # def add_topping(self,topping: str):
-    #
+    def add_topping(self,topping: str):
+        for x in self._toppings:
+            if x == topping and self._toppings[x] <= 3:
+                self._toppings[x] = self._toppings[x] + 1
+        temp2 = 0
+        for x in self._toppings:
+            temp2 += self._toppings[x]
+        self._price = 0.05 * Pizza.area(self._diameter) + temp2 * 2
 
     def __repr__(self) -> str:
         if self._toppings == {}:
